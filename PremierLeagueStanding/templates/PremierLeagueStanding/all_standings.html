@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Ranking
+{% endblock %}
+{% block page_content %}
+    <table>
+        <thead>
+        <tr>
+            <th>Sezon</th>
+            <th>Zespół</th>
+            <th>Miejsce</th>
+            <th>Mecze</th>
+            <th>Wygrane</th>
+            <th>Remisy</th>
+            <th>Przegrane</th>
+            <th>Bramki strzelone</th>
+            <th>Bramki stracone</th>
+            <th>Bilans goli</th>
+            <th>Punkty</th>
+            <th>Uwagi</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for standing in standings %}
+            <tr>
+                <td>{{ standing.Season_End_Year }}</td>
+                <td>{{ standing.Team }}</td>
+                <td>{{ standing.Rk }}</td>
+                <td>{{ standing.MP }}</td>
+                <td>{{ standing.W }}</td>
+                <td>{{ standing.D }}</td>
+                <td>{{ standing.L }}</td>
+                <td>{{ standing.GF }}</td>
+                <td>{{ standing.GA }}</td>
+                <td>{{ standing.GD }}</td>
+                <td>{{ standing.Pts }}</td>
+                <td>{{ standing.Notes }}</td>
+                <td>
+                    <a href="">Szczegóły</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
