@@ -3,6 +3,7 @@
 {% block page_title %}
     Ranking
 {% endblock %}
+
 {% block page_content %}
     <table>
         <thead>
@@ -16,7 +17,7 @@
             <th>Przegrane</th>
             <th>Bramki strzelone</th>
             <th>Bramki stracone</th>
-            <th>Bilans goli</th>
+            <th>Bilans bramowy</th>
             <th>Punkty</th>
             <th>Uwagi</th>
         </tr>
@@ -37,7 +38,7 @@
                 <td>{{ standing.Pts }}</td>
                 <td>{{ standing.Notes }}</td>
                 <td>
-                    <a href="">Szczegóły</a>
+                    <a href="{% url 'find_by_team_and_season'  Season_End_Year=standing.Season_End_Year Team=standing.Team %}">Szczegóły</a>
                 </td>
             </tr>
         {% endfor %}
