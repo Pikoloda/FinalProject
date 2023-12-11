@@ -13,10 +13,9 @@ def all_standings(request):
 
 
 def team_details_in_season(request, Season_End_Year, Team):
-    found_team = get_object_or_404(Standing, Season_End_Year=Season_End_Year, Team=Team)
-
-    return render(request,'PremierLeagueStanding/team_details.html',{
-        'team' : found_team
+    found_team = models.Standing.get_team_in_season(Season_End_Year, Team)
+    return render(request, 'PremierLeagueStanding/team_details.html', {
+        'team': found_team
     })
 # def team_details_in_season(request, Season_End_Year, Team):
 #     found_team = Standing.objects.filter(Season_End_Year=Season_End_Year, Team=Team)
